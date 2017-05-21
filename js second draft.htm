@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>javascript</title>
+
+    <script type="text/javascript">
+
+        function add(number1, number2) {
+            //add number 1 and 2
+            var result = number1 + number2;
+            return result;
+        };
+
+        function subtract(number1, number2) {
+            //subtract number 1 and 2
+            var result = number1 - number2;
+            return result;
+        };
+
+        function multiply(number1, number2) {
+            //multiply number 1 and number 2 
+            var result = number1 * number2;
+            return result;
+
+        };
+
+        function division(number1, number2) {
+            //divide number 1 and number 2
+            var result = number1 / number2;
+            return result;
+
+        };
+
+
+        function calculate(operator) {
+            //get number 1
+            var number1 = document.getElementById("number1").value
+            console.log(typeof (number1));
+            //use console.log(typeof(number1));
+
+            //get number 2
+            var number2 = document.getElementById("number2").value;
+
+            var result = 0;
+
+            //implement the other operators
+            switch (operator) {
+                case "+":
+                    //in chrome hit F12 to bring up developer console 
+                    //the message below should be logged there
+                    console.log("add operator executed");
+
+                    //call the add function
+                    //convert number 1 and number 2 to integers with parseInt()
+                    //otherwise it will concatenate and treat them like strings
+                    result = add(parseInt(number1), parseInt(number2));
+                    break;
+                default:
+                    alert("invalid selection");
+
+                case "-":
+
+                    console.log("subtract operator executed");
+
+                    result = subtract(parseInt(number1), parseInt(number2));
+                    break;
+
+                case "x":
+
+                    console.log("multiplication operator executed");
+
+                    result = multiply(parseInt(number1), parseInt(number2));
+                    break;
+
+                case "/":
+
+                    console.log("division operator executed");
+
+                    result = division(parseInt(number1), parseInt(number2));
+                    break;
+               
+            }
+            
+            //output result
+            document.getElementById("result").value = result;
+        };
+
+    </script>
+
+</head>
+<body>
+    <label>Number 1: </label>
+    <input type="text" id="number1" />
+    <br />
+
+    <label>Number 2: </label>
+    <input type="text" id="number2" />
+    <br />
+
+    <!-- add should work already, follow the pattern for others -->
+    <input type="button" value="+" onclick="calculate('+');" />
+    <!-- Fill this section in -->
+    <input type="button" value="-" onclick="calculate('-');" />
+    <input type="button" value="x" onclick="calculate('x');" />
+    <input type="button" value="/" onclick="calculate('/');" />
+
+    <br/>
+
+    <label>Result: </label>
+    <input type="text" id="result" />
+
+</body>
+</html>
